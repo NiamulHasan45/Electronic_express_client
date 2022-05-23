@@ -4,14 +4,19 @@ import PrimaryButton from '../../../SharedComponents/PrimaryButton';
 
 
 const Part = ({ part }) => {
+
     const navigate = useNavigate();
 
     const navigateToItem = id => {
         navigate(`/onepart/${id}`);
     }
+
+
     const [readMore, setReadMore] = useState(false);
     const extraContent = part.description.substring(60, part.description.length);
     const linkName = readMore ? 'Read Less... ' : 'Read More... '
+
+
 
     return (
         <div className='rounded-lg bg-slate-100 m-3 p-3'>
@@ -24,7 +29,9 @@ const Part = ({ part }) => {
                 <a className="read-more-link" onClick={() => { setReadMore(!readMore) }}><h2 className='font-semibold'>{linkName}</h2></a></p>
             <h2 className='text-2xl'>Available Products: {part.available}</h2>
             <h4 className='m-3'>Minimum Order Quantity: {part.quantity}</h4>
-            <PrimaryButton onClick={() => navigateToItem(_id)}>Buy Now</PrimaryButton>
+
+
+            <PrimaryButton><button onClick={()=>navigateToItem(part._id)}>Buy Now</button></PrimaryButton>
         </div>
     );
 };

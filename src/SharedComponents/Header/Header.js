@@ -48,11 +48,11 @@ const Header = () => {
                                 <li><a>Submenu 2</a></li>
                             </ul>
                         </li>
-                        
+
                     </ul>
                 </div>
                 <div class="navbar-end">
-                    <a class="btn">Login</a>
+                    <Link className='btn' to="/login">Login</Link>
                 </div>
             </div>
         </div>
