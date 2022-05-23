@@ -1,0 +1,56 @@
+[
+    {
+        "name": "YAMAHA R15 VERSION-4",
+        "price": "340000BDT",
+        "img": "https://i.ibb.co/9sJ8q52/Daco-110958.png",
+        "description": "The Yamaha YZF-R15 can easily feature on the list of most popular motorcycles sold in India. A very potent 150cc engine, a phenomenal delta box frame and a very sporty styling were a few quality features of the Yamaha R15 which had truly blown the minds of the customers back in 2008 when it was first introduced.",
+        "quantity": "30",
+        "available": "100000",
+        "supplier": "Globel Yamaha"
+    },
+    {
+        "name": "VINTAGE ANONYMOUS",
+        "price": "56000BDT",
+        "img": "https://i.ibb.co/VmDpgwD/Daco-111469.png",
+        "description": "MV Agusta is all about crafting motorcycle art since 1945. Each motorcycle is handcrafted and assembled by expert and passionate technicians.The story of Agusta started in 1907, when Count Giovanni Agusta, a Sicilian aristocrat with a passion for flying machines, founded the Agusta aeronautics.",
+        "quantity": "3",
+        "available": "100000",
+        "supplier": "Robert Downy Junior"
+    },
+    {
+        "name": "HERLEY DAVIDSON",
+        "price": "90000BDT",
+        "img": "https://i.ibb.co/vDN2VRw/Daco-112205.png",
+        "description": "Harley-Davidson, Inc., H-D, or Harley, is an American motorcycle manufacturer founded in 1903 in Milwaukee, Wisconsin. Along with Indian, it was one of two major American motorcycle manufacturers to survive the Great Depression.Harley-Davidson creates products, services and experiences that inspire our customers to discover.",
+        "quantity": "9",
+        "available": "100000",
+        "supplier": "David Backham"
+    },
+    {
+        "name": "ROYAL ENFIELD",
+        "price": "40000BDT",
+        "img": "https://i.ibb.co/p4s6sJW/Daco-1238137.png",
+        "description": "Royal Enfield is an Indian multinational motorcycle manufacturing company headquartered in Chennai, Tamil Nadu, India. The company is the oldest global motorcycle brand in continuous production, and operates manufacturing plants in Chennai in India.The Enfield Cycle Company made motorcycles, bicycles, lawnmowers.",
+        "quantity": "15",
+        "available": "100000",
+        "supplier": "Mokesh Patel"
+    },
+    {
+        "name": "VINTAGE FTR 1200",
+        "price": "800000BDT",
+        "img": "https://i.ibb.co/4YYjJG6/Daco-1543416.png",
+        "description": "Indian Motorcycle motorcycles are very exclusive bikes. But here too there are many ways to live out your individuality. No matter whether exhaust system, handlebars, turn signals, special paintwork or refinements down to the smallest detail. We make your already special machine unique!",
+        "quantity": "12",
+        "available": "100000",
+        "supplier": "Mark Peter"
+    },
+    {
+        "name": "CAN AM SPYDER",
+        "price": "110000BDT",
+        "img": "https://i.ibb.co/VtHhqkK/Daco-3950491.png",
+        "description": "The Can-Am Spyder is a three-wheeled motorcycle manufactured by Can-Am motorcycles, a division of Bombardier Recreational Products. The vehicle has a single rear drive wheel and two wheels in front for steering, similar in layout to a modern snowmobile. The Spyder uses an ATV-like chassis.",
+        "quantity": "7",
+
+"available": "100000",        "supplier": "Mr. Sojib Khan"
+    }
+]
