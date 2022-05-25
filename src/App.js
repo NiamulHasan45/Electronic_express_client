@@ -9,6 +9,10 @@ import Login from './Authentication/Login/Login';
 import RequireAuth from './Authentication/RequireAuth';
 import SignUp from './Authentication/Register/SignUp';
 import { Toaster } from 'react-hot-toast';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import AddReview from './Pages/Dashboard/AddReview';
+import MyProfile from './Pages/Dashboard/MyProfile';
+import MyOrders from './Pages/Dashboard/MyOrders';
 
 function App() {
   return (
@@ -17,6 +21,11 @@ function App() {
       <Toaster></Toaster>
       <Routes>
         <Route path='/' element={<HomePage></HomePage>}></Route>
+        <Route path='dashboard' element={<Dashboard></Dashboard>}>
+          <Route index element ={<MyOrders></MyOrders>}></Route>
+          <Route path='review' element={<AddReview></AddReview>}></Route>
+          <Route path='profile' element={<MyProfile></MyProfile>}></Route>
+        </Route>
         <Route path='/onepart/:id' element={
           <RequireAuth>
             <PurchaseHome></PurchaseHome>

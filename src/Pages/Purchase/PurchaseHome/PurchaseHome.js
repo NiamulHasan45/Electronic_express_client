@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useForm } from 'react-hook-form';
+
 import { useParams } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import toast, { Toaster } from 'react-hot-toast';
@@ -18,15 +18,17 @@ const PurchaseHome = () => {
         fetch(`http://localhost:5000/onepart/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
-    }, [])
+    }, [remaining])
 
     const handleBooking = event => {
         event.preventDefault();
         let unit = parseInt(event.target.quantity.value);
         let minQuantity = parseInt(product.quantity)
-        let available = parseInt(product.available);
+        let avail = parseInt(product.available);
 
-        if (unit >= minQuantity && unit <= available) {
+        // >= minQuantity && unit <= avail
+
+        if (unit >= minQuantity && unit <= avail) {
             console.log("sucess");
             setError("");
             const booking = {
@@ -36,7 +38,8 @@ const PurchaseHome = () => {
                 userName: user.displayName,
                 userPhone: event.target.phone.value,
                 userAddress: event.target.address.value,
-                quantity: unit
+                quantity: unit,
+                price: product.price
             }
 
             fetch('http://localhost:5000/order', {
@@ -49,7 +52,9 @@ const PurchaseHome = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
-                        const remaining = available-unit;
+                        const available = avail-unit;
+                      
+                        const remaining = {available};
                         const url = `http://localhost:5000/onepart/${id}`;
                         fetch(url, {
                             method: 'PUT',
@@ -61,6 +66,7 @@ const PurchaseHome = () => {
                         .then(res => res.json())
                         .then(result => {
                             setRemainig(result);
+                            console.log(result);
                         })
 
 
@@ -98,7 +104,7 @@ const PurchaseHome = () => {
                                 <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
                                 <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" required />
                                 <input type="text" name="address" placeholder="Address" className="input input-bordered w-full max-w-xs" required />
-                                <input type="number" name="quantity" placeholder="Item Quantity" className="input input-bordered w-full max-w-xs" required />
+                                <input type="number" name="quantity" placeholder={product.quantity} className="input input-bordered w-full max-w-xs" required/>
 
                                 {
                                     error && <p className='text-red-400'>{error}</p>

@@ -15,9 +15,8 @@ const Header = () => {
 
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/appointment">Appointment</Link></li>
-        <li><Link to="/review">Review</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
+        <li><a href="#parts">All Products</a></li>
+        <li><a href="#review">Review</a></li>
         <li><Link to="/about">About</Link></li>
         
     </>
@@ -32,39 +31,25 @@ const Header = () => {
                         </label>
                         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 bg-primary text-white">
                             {menuItems}
-                            <li tabindex="0">
-                                <a class="justify-between">
-                                    Parent
-                                    <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-                                </a>
-                                <ul class="p-2 bg-primary text-white">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </li>
+                            {
+                                user&&<li><Link to="/dashboard">Dashboard</Link></li>
+                            }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">Electronic Express</a>
+                    <Link className="btn btn-ghost normal-case text-xl" to="/">Electronic Express</Link>
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">
                         {menuItems}
-                        <li tabindex="0">
-                            <a>
-                                Parent
-                                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-                            </a>
-                            <ul class="p-2 bg-primary text-white">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </li>
-
+                        {
+                                user&&<li><Link to="/dashboard">Dashboard</Link></li>
+                            }
                     </ul>
                 </div>
                 <div class="navbar-end">
                     {
-                        user?<button className='btn' onClick={handleSignOut}>Signout</button>:
+                        user?<><p className='mx-3'>{user.displayName}</p>
+                        <button className='btn' onClick={handleSignOut}>Signout</button></>:
                         <Link className='btn' to="/login">Login</Link>
                     }
                 </div>
