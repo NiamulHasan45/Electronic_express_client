@@ -1,59 +1,38 @@
-import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-
+import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import auth from '../../firebase.init';
-import Loading from '../../SharedComponents/Loading';
-import useToken from '../useToken';
 
-const Login = () => {
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [
-        signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
-    ] = useSignInWithEmailAndPassword(auth);
-
-    const [token] = useToken(user || gUser);
-
-    let signInError;
-    const navigate = useNavigate();
-    const location = useLocation();
-    let from = location.state?.from?.pathname || "/";
-
-    useEffect( () =>{
-        if (token) {
-            navigate(from, { replace: true });
-        }
-    }, [token, from, navigate])
-    
-        // if (user || gUser) {
-        //     navigate(from, { replace: true });
-        // }
-    
-
-
-    if (loading || gLoading) {
-        return <Loading></Loading>
+    const onSubmit = async data => {
+        console.log(data);
     }
-
-    if(error || gError){
-        signInError= <p className='text-red-500'><small>{error?.message || gError?.message }</small></p>
-    }
-
-    const onSubmit = data => {
-        signInWithEmailAndPassword(data.email, data.password);
-    }
-
     return (
-        <div className='flex h-screen justify-center items-center'>
+        <div>
+            <div className='flex h-screen justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Login</h2>
+                    <h2 className="text-center text-2xl font-bold">Add new Product</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Your Name"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'Name is Required'
+                                    }
+                                })}
+                            />
+                            <label className="label">
+                                {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                            </label>
+                        </div>
 
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
@@ -98,25 +77,16 @@ const Login = () => {
                                     }
                                 })}
                             />
-                            <label className="label">
-                                {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                            </label>
+                            
                         </div>
-
-                        {signInError}
-                        <input className='btn btn-primary w-full max-w-xs text-white' type="submit" value="Login" />
+                        <input className='btn btn-primary w-full max-w-xs text-white' type="submit" value="Sign Up" />
                     </form>
-                    <p><small>New to Electronics portal <Link className='text-primary' to="/signup">Create New Account</Link></small></p>
-                    <div className="divider">OR</div>
-                    <button
-                        onClick={() => signInWithGoogle()}
-                        className="btn btn-outline"
-                    >Continue with Google</button>
+                    
                 </div>
             </div>
         </div >
+        </div>
     );
 };
 
-export default Login;
+export default AddProduct;
