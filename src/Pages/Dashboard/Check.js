@@ -14,7 +14,7 @@ const CheckoutForm = (props) => {
     const {price} =props;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://powerful-mountain-90746.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -81,7 +81,7 @@ const CheckoutForm = (props) => {
                 appointment: paymentData._id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/order/${paymentData._id}`, {
+            fetch(`https://powerful-mountain-90746.herokuapp.com/order/${paymentData._id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

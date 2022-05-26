@@ -14,7 +14,7 @@ const Payment = () => {
    
 
     useEffect(() => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://powerful-mountain-90746.herokuapp.com/order/${id}`, {
             method: 'GET',
             headers: {
                 "authorization": `Bearer ${localStorage.getItem('accessToken')}`

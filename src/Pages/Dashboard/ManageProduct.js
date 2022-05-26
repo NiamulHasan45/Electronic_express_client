@@ -4,7 +4,7 @@ import './ManageProduct.css'
 const ManageProduct = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/parts')
+        fetch('https://powerful-mountain-90746.herokuapp.com/parts')
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
@@ -12,7 +12,7 @@ const ManageProduct = () => {
 
     const handleDelete = id => {
 
-        const url = `http://localhost:5000/onepart/${id}`;
+        const url = `https://powerful-mountain-90746.herokuapp.com/onepart/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

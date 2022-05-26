@@ -15,7 +15,7 @@ const PurchaseHome = () => {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/onepart/${id}`)
+        fetch(`https://powerful-mountain-90746.herokuapp.com/onepart/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [remaining])
@@ -42,7 +42,7 @@ const PurchaseHome = () => {
                 price: product.price
             }
 
-            fetch('http://localhost:5000/order', {
+            fetch('https://powerful-mountain-90746.herokuapp.com/order', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -55,7 +55,7 @@ const PurchaseHome = () => {
                         const available = avail-unit;
                       
                         const remaining = {available};
-                        const url = `http://localhost:5000/onepart/${id}`;
+                        const url = `https://powerful-mountain-90746.herokuapp.com/onepart/${id}`;
                         fetch(url, {
                             method: 'PUT',
                             headers: {

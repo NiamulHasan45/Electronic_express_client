@@ -11,7 +11,7 @@ const Reviews = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://powerful-mountain-90746.herokuapp.com/reviews')
             .then(data => data.json())
             .then(res => setReview(res))
     }, [])

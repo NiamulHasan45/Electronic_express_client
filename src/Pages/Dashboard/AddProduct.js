@@ -33,7 +33,7 @@ const AddProduct = () => {
                     img: img
                 }
                 
-                fetch('http://localhost:5000/parts', {
+                fetch('https://powerful-mountain-90746.herokuapp.com/parts', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

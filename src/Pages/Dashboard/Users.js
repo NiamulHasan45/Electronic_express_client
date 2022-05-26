@@ -3,10 +3,10 @@ import toast from "react-hot-toast";
 
 
 const Users = () => {
-    // const {data} = use('users', ()=>fetch('http://localhost:5000/user').then(res=>res.json()));
+    // const {data} = use('users', ()=>fetch('https://powerful-mountain-90746.herokuapp.com/user').then(res=>res.json()));
      const [users, setUsers] = useState([]);
      useEffect(()=>{
-        fetch('http://localhost:5000/user',{
+        fetch('https://powerful-mountain-90746.herokuapp.com/user',{
             method: 'GET',
             headers:{
                 "authorization": `Bearer ${localStorage.getItem('accessToken')}`
@@ -17,7 +17,7 @@ const Users = () => {
      }, [users])
 
      const makeAdmin =(email)=>{
-         fetch(`http://localhost:5000/user/admin/${email}`, {
+         fetch(`https://powerful-mountain-90746.herokuapp.com/user/admin/${email}`, {
              method: 'PUT',
              headers:{
                 headers:{
