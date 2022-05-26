@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './ManageProduct.css'
 
 const ManageProduct = () => {
     const [items, setItems] = useState([]);
@@ -10,27 +11,26 @@ const ManageProduct = () => {
 
 
     const handleDelete = id => {
-        const proceed = window.confirm('Are you sure?');
-        if (proceed) {
-            const url = `http://localhost:5000/onepart/${id}`;
-            fetch(url, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
 
-                .then(data => {
-                    console.log(data);
-                    const remaining = items.filter(item => item._id !== id);
-                    setItems(remaining);
-                })
-        }
+        const url = `http://localhost:5000/onepart/${id}`;
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+
+            .then(data => {
+                console.log(data);
+                const remaining = items.filter(item => item._id !== id);
+                setItems(remaining);
+            })
+
     }
     console.log(items);
 
     return (
-        <div  className='inventory'>
-            <div className='my-3'>welcome</div>
-            <h2 className='mt-5'>Detailed information of the inventory.</h2>
+        <div className='inventory'>
+            <h1 className='my-3 text-3xl text-bold text-primary'>Welcome</h1>
+            <h2 className='mt-5 text-2xl text-semibold text-secondary'>Detailed information of the Parts.</h2>
 
             <div className='manage-one-product'>
                 {
@@ -42,17 +42,32 @@ const ManageProduct = () => {
 
                         <div className='one-information'>
                             <div>
-                                <h2 className='m-3'>{item.name}</h2>
-                                <h3 className='text-primary'>Price: {item.price}</h3>
-                                <p>Supplier Name: {item.supplier}</p>
+                                <h2 className='text-2xl font-semibold m-3'>{item.name}</h2>
+                                <h3 className=' text-2xl text-primary'>Price: {item.price}</h3>
+                                <p>Available Quantity: {item.available}</p>
                             </div>
+                            <label for="my-modal" class="btn modal-button">Delete</label>
 
-                            <button onClick={() => handleDelete(item._id)} className='service-button btn btn-danger d-block mx-auto'>X</button>
+
+
+
+                            <input type="checkbox" id="my-modal" class="modal-toggle" />
+                            <div class="modal">
+                                <div class="modal-box">
+                                    <label for="my-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                                    <h3 class="font-bold text-lg">Are you sure!</h3>
+                                    <p class="py-4">If You are sure, please click here!</p>
+                                    <div class="modal-action">
+                                        <button onClick={() => handleDelete(item._id)} className='service-button btn btn-accent d-block mx-auto'>Delete</button>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>)
                 }
             </div>
+
         </div>
     );
 };

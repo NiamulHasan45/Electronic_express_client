@@ -12,9 +12,9 @@ const Dashboard = () => {
         <div>
             <div class="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-                <div class="drawer-content flex flex-col items-center justify-center">
+                <div class="drawer-content flex flex-col ">
                     <Outlet></Outlet>
-                    <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden my-6">Open drawer</label>
 
                 </div>
                 <div class="drawer-side">

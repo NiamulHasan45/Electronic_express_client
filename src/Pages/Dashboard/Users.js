@@ -34,6 +34,7 @@ const Users = () => {
 
     return (
         <div>
+            <h1 className='my-3 text-3xl text-bold text-primary'>All users</h1>
            
             <table class="table w-full">
                     <thead>

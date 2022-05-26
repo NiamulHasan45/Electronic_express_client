@@ -32,9 +32,10 @@ const MyOrders = () => {
 
     return (
         <div>
+            <h1 className='my-3 text-3xl text-bold text-primary'>Welcome to yours orders</h1>
 
             <div class="overflow-x-auto">
-                <table class="table w-full">
+                <table class="table lg:w-full w-50 ">
                     <thead>
                         <tr>
                             <th></th>

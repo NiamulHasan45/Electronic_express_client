@@ -34,7 +34,7 @@ const AddReview = () => {
     }
     return (
         <div>
-            <h2>Please Write Something About Our Store.</h2>
+            <h1 className='my-3 text-3xl text-bold text-primary'>Please Write Something About Our Store.</h1>
              <div>
                             <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
 
