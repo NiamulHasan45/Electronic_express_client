@@ -17,6 +17,8 @@ import Users from './Pages/Dashboard/Users';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import ManageProduct from './Pages/Dashboard/ManageProduct';
 import Payment from './Pages/Dashboard/Payment';
+import NotFound from './SharedComponents/NotFound';
+import Blogs from './Pages/Blogs';
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
         </Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
 
       <Footer></Footer>
