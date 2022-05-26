@@ -5,6 +5,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from './CheckoutForm';
 
 
+
 const stripePromise = loadStripe('pk_test_51L3cIwKbnKM56TwTJNz0xrw9mIVZR7Er30MqLBBZWEjoI6zlO4zqbD7bR18pB53ktFgqeplV2xEVKYdR9nOfYKaZ00dhMqmEhw');
 
 const Payment = () => {
@@ -44,7 +45,7 @@ const Payment = () => {
             <div class=" mx-auto card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
                 <div class="card-body">
                     <Elements stripe={stripePromise}>
-                        <CheckoutForm paymentData={paymentData} />
+                        <CheckoutForm paymentData={paymentData} price={price} />
                     </Elements>
                 </div>
             </div>
